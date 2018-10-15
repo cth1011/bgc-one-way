@@ -17,7 +17,6 @@ body {
   font-family: Helvetica;
   font-weight: bold;
   color: white;
-  display:none;
 }
 .navbar-brand{
   padding-left: 1.5vh;
@@ -31,7 +30,7 @@ body {
 /* =-=-=-=-=-=-= Content Left =-=-=-=-=-=-= */
 .left{
 width:100%;
-display: none;
+
 }
 .header {
   padding-top: 2vh;
@@ -55,6 +54,9 @@ tr {
   font-family: Helvetica;
   font-weight: bold;
   color: #b4b4b4;
+}
+.col-lg-4 {
+  font-size:1.5vh;
 }
 
 /* =-=-=-=-=-=-= Map =-=-=-=-=-=-= */
@@ -158,7 +160,7 @@ tr {
   border-radius:1vh;
   padding: 2vh;
   width:20vh;
-  display:none;
+
 }
 .colors {
   background: linear-gradient(to right, rgb(47,174,192), rgb(251, 212, 72), rgb(233, 74, 47));

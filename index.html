@@ -11,6 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script src="/lib/parallax.js"></script>
     <link rel="stylesheet" href="./lib/bootstrap.min.css">
     <link rel="stylesheet" href="./design.css">
@@ -36,33 +41,20 @@
     <div class='row'>
       <div class='col-xl-4 left'>
         <div class='row header'>
-          <div class='col-lg-2' style='padding-top:1vh;margin-left:1vh;'>Period</div>
-          <div class='col-lg-2'>
-              <form style='width:20vh;margin-right:5vh; margin-left:5vh'>
-                <select class="custom-select" >
-                  <option selected>Select Period</option>
-                  <option value="1">Yesterday</option>
-                  <option value="2">Last 7 Days</option>
-                  <option value="3">Last 28 Days</option>
-                  <option value="4">Last 90 Days</option>
-                  <option value="5">More preset ranges</option>
-                  <option value="6">Custom</option>
-                </select>
-              </form>
+          <div class='col-lg-2' style='padding-top:0.5vh;margin-left:1vh;'>Period</div>
+          <div class='col-lg-4'>
+            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                <i class="fa fa-calendar"></i>&nbsp;
+                <span></span> <i class="fa fa-caret-down"></i>
+            </div>
+
           </div>
-          <div class='col-lg-1' style='padding-top:1vh;margin-left:16vh;'> vs. </div>
-          <div class='col-lg-3'>
-            <form>
-              <select class="custom-select" style='width: 20vh'>
-                <option selected>Select a Period</option>
-                <option value="1">Previous Day</option>
-                <option value="2">Previous Week</option>
-                <option value="3">Previous Month</option>
-                <option value="4">Previous 3 Months</option>
-                <option value="5">More preset ranges</option>
-                <option value="6">Custom</option>
-              </select>
-            </form>
+          <span>vs.</span>
+          <div class='col-lg-4'>
+            <div id="reportrange1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                <i class="fa fa-calendar"></i>&nbsp;
+                <span></span> <i class="fa fa-caret-down"></i>
+            </div>
           </div>
         </div>
 
@@ -70,8 +62,8 @@
             <thead>
           <tr>
             <th id='metrics'>Metrics</th>
-            <th class='period1'>8/30-9/5</th>
-            <th class='period2'>8/30-8/23</th>
+            <th class='period1'></th>
+            <th class='period2'></th>
             <th>Variance</th>
           </tr>
         </thead>
@@ -116,7 +108,7 @@
       </table>
       </div>
 
-      <div class='' id='maps'>
+      <div class='col-xl-8' id='maps'>
         <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
         <div id='before' class='content'></div>
